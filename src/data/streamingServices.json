@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "1 Month Amazon",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  },
+  {
+    "id": 2,
+    "name": "1 Month Disney+",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  },
+  {
+    "id": 3,
+    "name": "1 Month HBO",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  },
+  {
+    "id": 4,
+    "name": "1 Month HULU",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  },
+  {
+    "id": 5,
+    "name": "1 Month Netflix",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  },
+  {
+    "id": 6,
+    "name": "1 Month Paramount",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  },
+  {
+    "id": 7,
+    "name": "1 Month Peacock",
+    "price": 120,
+    "imgurl": "/imgs/AmazonPrime.png"
+  }
+]
