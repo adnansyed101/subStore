@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { formatCurrency } from "../utilities/formatCurrency";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 type StoreItemProps = {
   id: number;
@@ -15,7 +16,14 @@ type StoreItemProps = {
 };
 
 export const StoreItem = ({ id, name, price, imgurl }: StoreItemProps) => {
-  const quantity = 0;
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
+
+  const quantity = getItemQuantity(id);
   return (
     <Card sx={{ h: 100 }}>
       <CardMedia
@@ -33,14 +41,24 @@ export const StoreItem = ({ id, name, price, imgurl }: StoreItemProps) => {
       </CardContent>
       <div className="mt-auto p-2">
         {quantity === 0 ? (
-          <Button variant="contained" fullWidth={true} className="bg-blue-500">
+          <Button
+            variant="contained"
+            onClick={() => increaseCartQuantity(id)}
+            fullWidth={true}
+            className="bg-blue-500"
+          >
             + Add to Cart
           </Button>
         ) : (
           <div className="flex items-center flex-col gap-2">
             <div className="flex items-center justify-center gap-2">
-              <Button variant="contained" className="bg-blue-500" size="medium">
-                +
+              <Button
+                variant="contained"
+                className="bg-blue-500"
+                onClick={() => decreaseCartQuantity(id)}
+                size="medium"
+              >
+                -
               </Button>
               <div>
                 <Typography variant="h6" component="span">
@@ -48,8 +66,13 @@ export const StoreItem = ({ id, name, price, imgurl }: StoreItemProps) => {
                 </Typography>{" "}
                 in cart
               </div>
-              <Button variant="contained" className="bg-blue-500" size="medium">
-                -
+              <Button
+                variant="contained"
+                className="bg-blue-500"
+                onClick={() => increaseCartQuantity(id)}
+                size="medium"
+              >
+                +
               </Button>
             </div>
             <Button
@@ -57,6 +80,7 @@ export const StoreItem = ({ id, name, price, imgurl }: StoreItemProps) => {
               color="error"
               className="bg-red-500"
               size="small"
+              onClick={() => removeFromCart(id)}
             >
               Remove
             </Button>
