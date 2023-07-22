@@ -2,8 +2,10 @@ import { Badge, Button } from "@mui/material";
 import { BsFillCartFill } from "react-icons/bs";
 import shoppingCart from "/shoppingCart.svg";
 import { Link } from "react-router-dom";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export const Navbar = () => {
+  const { openCart, cartQuantity } = useShoppingCart();
   return (
     <div className="navbar">
       <Link to="/" className="logo">
@@ -22,11 +24,18 @@ export const Navbar = () => {
             <Link to="/about">About</Link>
           </li>
         </ul>
-        <Badge badgeContent={5} color="error">
-          <Button color="primary" variant="outlined" className="rounded-full">
-            <BsFillCartFill />
-          </Button>
-        </Badge>
+        {cartQuantity > 0 && (
+          <Badge badgeContent={cartQuantity} color="error">
+            <Button
+              color="primary"
+              variant="outlined"
+              className="rounded-full"
+              onClick={openCart}
+            >
+              <BsFillCartFill />
+            </Button>
+          </Badge>
+        )}
       </div>
     </div>
   );
