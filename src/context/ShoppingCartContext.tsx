@@ -36,7 +36,7 @@ export function ShoppingCartProvider({
     "shopping-cart",
     []
   );
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const cartQuantity: number = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
