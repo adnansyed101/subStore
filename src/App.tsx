@@ -1,9 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./pages/Home";
-import { Store } from "./pages/Store";
+import { StreamingServices } from "./pages/StreamingServices";
 import { About } from "./pages/About";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import { Playstation } from "./pages/Playstation";
+import { Xbox } from "./pages/Xbox";
+import { AllProducts } from "./pages/AllProducts";
 
 function App() {
   return (
@@ -12,7 +15,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
+          <Route path="/store/allProducts" element={<AllProducts />} />
+          <Route path="/store/streamingService" element={<StreamingServices />} />
+          <Route path="/store/playstation" element={<Playstation />} />
+          <Route path="/store/xbox" element={<Xbox />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
