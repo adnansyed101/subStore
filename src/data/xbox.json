@@ -15,7 +15,7 @@
     "id": 23,
     "name": "25$ XBOX",
     "price": 2750,
-    "imgurl": "/imgs/gift-card/xbox/twentyFiveDollar.jepg"
+    "imgurl": "/imgs/gift-card/xbox/twentyFiveDollar.jpeg"
   },
   {
     "id": 24,
@@ -30,21 +30,15 @@
     "imgurl": "/imgs/gift-card/xbox/thirtyDollar.jpeg"
   },
   {
-    "id": 25,
-    "name": "3 Month Live Gold",
-    "price": 2500,
-    "imgurl": "/imgs/gift-card/xbox/goldThreeMonth.jpeg"
-  },
-  {
     "id": 26,
     "name": "6 Month Live Gold",
     "price": 4500,
-    "imgurl": "/imgs/git-card/xbox/goldSixMonth.jpeg"
+    "imgurl": "/imgs/gift-card/xbox/goldSixMonth.jpeg"
   },
   {
     "id": 26,
     "name": "12 Month Live Gold",
     "price": 4500,
-    "imgurl": "/imgs/git-card/xbox/goldTwelveMonth.jpeg"
+    "imgurl": "/imgs/gift-card/xbox/goldTwelveMonth.jpeg"
   }
 ]
