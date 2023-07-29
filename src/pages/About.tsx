@@ -1,3 +1,3 @@
 export const About = () => {
-  return <h1 className="text-xl">About</h1>;
+  return <h1 className="text-xl text-center my-2">About</h1>;
 };
