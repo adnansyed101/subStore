@@ -1,6 +1,6 @@
 import { Button, Stack, Typography } from "@mui/material";
 import { useShoppingCart } from "../context/ShoppingCartContext";
-import streamingService from "../data/streamingServices.json";
+import allProduct from "../data/allProducts.json";
 import { formatCurrency } from "../utilities/formatCurrency";
 
 type CartItemProps = {
@@ -10,7 +10,7 @@ type CartItemProps = {
 
 export const CartItem = ({ id, quantity }: CartItemProps) => {
   const { removeFromCart } = useShoppingCart();
-  const item = streamingService.find((i) => i.id === id);
+  const item = allProduct.find((i) => i.id === id);
   if (item == null) return null;
 
   return (
