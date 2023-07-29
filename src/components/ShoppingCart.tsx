@@ -2,7 +2,7 @@ import { Box, Stack, SwipeableDrawer } from "@mui/material";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { CartItem } from "./CartItem";
 import { formatCurrency } from "../utilities/formatCurrency";
-import streamingService from "../data/streamingServices.json";
+import allProduct from "../data/allProducts.json";
 
 type ShoppingCartProps = {
   isOpen: boolean;
@@ -22,7 +22,7 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
           Total{" "}
           {formatCurrency(
             cartItems.reduce((total, cartItem) => {
-              const item = streamingService.find((i) => i.id === cartItem.id);
+              const item = allProduct.find((i) => i.id === cartItem.id);
               return total + (item?.price || 0) * cartItem.quantity;
             }, 0)
           )}
