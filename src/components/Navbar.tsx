@@ -47,7 +47,7 @@ export const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleClose}><Link to='/store/allProducts'>All Products</Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link to='/store/streamingService'>Xbox</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to='/store/streamingService'>Streaming Services</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to='/store/playstation'>PlayStation</Link></MenuItem>
               <MenuItem onClick={handleClose}><Link to='/store/xbox'>Xbox</Link></MenuItem>
             </Menu>
