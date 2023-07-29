@@ -19,7 +19,7 @@ body {
 }
 
 .links > ul {
-  @apply flex gap-3 items-center;
+  @apply flex gap-5 items-center;
 }
 
 ul > li {
