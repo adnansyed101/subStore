@@ -1,5 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { ReactNode, createContext, useContext, useState } from "react";
+import { ShoppingCart } from "../components/ShoppingCart";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type ShoppingCartProviderProvider = {
   children: ReactNode;
@@ -30,10 +32,13 @@ export function useShoppingCart() {
 export function ShoppingCartProvider({
   children,
 }: ShoppingCartProviderProvider) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    "shopping-cart",
+    []
+  );
+  const [isOpen, setIsOpen] = useState(true);
 
-  const cartQuantity = cartItems.reduce(
+  const cartQuantity: number = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
@@ -97,6 +102,7 @@ export function ShoppingCartProvider({
       }}
     >
       {children}
+      <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );
 }
