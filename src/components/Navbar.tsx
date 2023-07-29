@@ -1,10 +1,20 @@
-import { Badge, Button } from "@mui/material";
+import { Badge, Button, Menu, MenuItem } from "@mui/material";
 import { BsFillCartFill } from "react-icons/bs";
 import shoppingCart from "/shoppingCart.svg";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const { openCart, cartQuantity } = useShoppingCart();
   return (
     <div className="navbar">
@@ -18,7 +28,29 @@ export const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/store">Store</Link>
+            <span
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              Store
+            </span>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleClose}><Link to='/store/allProducts'>All Products</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to='/store/streamingService'>Xbox</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to='/store/playstation'>PlayStation</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to='/store/xbox'>Xbox</Link></MenuItem>
+            </Menu>
           </li>
           <li>
             <Link to="/about">About</Link>
